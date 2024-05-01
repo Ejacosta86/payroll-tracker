@@ -4,63 +4,63 @@ let newEmpolyees = []
 let firstName;
 let lastName;
 let salary;
-//when the user clicks on the add employees an alert will appear to add the information.
-addEmployeesBtn.onclick = function () {
-//add information first, last and salary
-firstName = prompt("first name")
-lastName = prompt("last name");
-salary = prompt(salary);
-  if (isNaN(salary)){
-    salary = 0;
-  } else {
-    salary = Number(salary);
-  }
-}
+
 
 // Collect employee data
 const collectEmployees = function() {
-const newEmpolyee = {
-  firstName: firstName, 
-  lastName:lastName, 
-  salary:salary 
-};
+  let addEmployee = true;
 
- // TODO: Get user input to create and return an array of employee objects
-  newEmpolyees.push(newEmpolyee);
- 
-  return newEmpolyees;
+  while (addEmployee){
+    firstName = prompt("first name")
+    lastName = prompt("last name");
+    salary = prompt("salary");
+    
+    if (isNaN(salary)){
+      salary = 0;
+    } else {
+      salary = Number(salary);
+    } 
+      
+    const newEmpolyee = {
+      firstName: firstName, 
+      lastName:lastName, 
+      salary:salary 
+    };
+      
+    newEmpolyees.push(newEmpolyee);
+
+  const continueAdding = confirm("continue adding employees?");
+  if (continueAdding === false){
+    addEmployee = false;
+  }
 }
 
-//read readme again
-//convert salary to a number
-//study while loop
-//use while loop to calualte average
+const sortName = newEmpolyees.sort((a,b) => a.lastName - b.lastName)
 
+  return sortName;
+}
 
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
-  // console.log("=>",employeesArray);
-  let index = 0;
   let totalSalary = 0;
   const totalEmployees = employeesArray.length
-  // const averageSalary = 0;
-  while ( index <= employeesArray.length> 0) {
-  //  totalSalary = totalSalary + employeesArray[index]["salary"]
-    console.log(employeesArray[index]);
-    index++
-    }
+  
+  for(let i = 0; i < employeesArray.length; i++){
+    totalSalary = totalSalary + employeesArray[i].salary
+  }
 
-
-
-
-  return totalSalary / totalEmployees;
-  // TODO: Calculate and display the average salary
+  console.log(`The average total salary between our ${totalEmployees} employees is ${totalSalary / totalEmployees}`)
+  
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
-  // TODO: Select and display a random employee
+  const randomIndex = Math.floor(Math.random() * (employeesArray.length - 1));
+  const randomEmployee = employeesArray[randomIndex];
+
+  console.log(`congratulations you are the winner ${randomEmployee.firstName}`);
+ 
 }
 
 /*
