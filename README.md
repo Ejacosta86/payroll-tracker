@@ -6,7 +6,7 @@ This challenge required me to modify starter code to create an application that 
 
 ## Website
 
-click link to view [website](https://github.com/Ejacosta86/payroll-tracker).
+click link to view [website](https://ejacosta86.github.io/payroll-tracker/).
 
 
 
